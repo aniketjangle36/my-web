@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .payment-container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .payment-container h2 {
+      margin-bottom: 5px;
+    }
+    .payment-container p {
+      color: green;
+      margin-bottom: 20px;
+    }
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .icon {
+      width: 60px;
+      height: 60px;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fafafa;
+      cursor: pointer;
+      transition: border-color 0.3s;
+    }
+    .icon img {
+      width: 80%;
+      height: 80%;
+      object-fit: contain;
+    }
+    .icon.selected {
+      border-color: #2196F3;
+      background-color: #E3F2FD;
+    }
+    button {
+      background: #2196F3;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #1976D2;
+    }
+    #error-message {
+      color: red;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="payment-container">
+  <h2>Payment</h2>
+  <p>Transactions are secure and encrypted.</p>
+  
+  <div class="icons" id="payment-options" >
+    <div class="icon" data-method="PhonePe">
+      <img src="https://avatars.githubusercontent.com/u/187588112?s=280&v=4" alt="phonepe"  >
+    </a>
+    </a>
+    </div>
+    <div class="icon" data-method="Apple Pay">
+      <img src="https://cdn-icons-png.freepik.com/512/5968/5968601.png" alt="Apple Pay">
+    </div>
+     <div class="icon" data-method="Credit Card">
+      <img src="https://www.freeiconspng.com/uploads/credit-cards-visa-mastercard-icon-png-3.png" alt="Credit Card">
+    </div>
+    <div class="icon" data-method="Google Pay">
+      <img src="https://png.pngtree.com/png-clipart/20230916/original/pngtree-google-pay-icon-vector-png-image_12256720.png" alt="Google Pay">
+    </div>
+  </div>
+<a href="UPI .html">
+  <button onclick="submitPayment()">Continue</button></a>
+  
+  <div id="error-message">Please select a payment method.</div>
+</div>
+
+<script>
+  let selectedMethod = null;
+
+  const icons = document.querySelectorAll('.icon');
+  
+  icons.forEach(icon => {
+    icon.addEventListener('click', () => {
+      icons.forEach(i => i.classList.remove('selected')); // Remove selection from all
+      icon.classList.add('selected'); // Add selection to clicked one
+      selectedMethod = icon.getAttribute('data-method');
+      document.getElementById('error-message').style.display = 'none'; // Hide error if selecting
+    });
+  });
+
+  function submitPayment() {
+    if (selectedMethod) {
+      alert('You selected: ' + selectedMethod);
+      // Redirect to next page or do payment action
+      
+    } 
+    else {
+      document.getElementById('error-message').style.display = 'block';
+    }
+  }
+</script>
+
+</body>
+</html>
