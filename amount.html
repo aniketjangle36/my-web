@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+    
+    <style> 
+        /* Overall body styling */
+        body {
+            background: linear-gradient(135deg, #f0f2f5, #d9e2ec);
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Main payment box styling */
+        .payment-box {
+            background: #e3f2fd;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+        }
+
+        /* Heading */
+        h2 {
+            margin-bottom: 20px;
+            color: #1976d2;
+        }
+
+        /* Quick amount selection buttons */
+        .methods {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .method-btn {
+            background-color: #2196f3;
+            border: none;
+            color: white;
+            padding: 12px 16px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .method-btn:hover {
+            background-color: #1976d2;
+        }
+
+        /* Custom amount input field */
+        .custom-amount {
+            margin-bottom: 20px;
+        }
+
+        .custom-amount input {
+            padding: 10px;
+            width: 80%;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        /* Donation message */
+        .message {
+            margin: 10px 0;
+            color: #0d47a1;
+            font-weight: bold;
+        }
+
+        /* Continue button */
+        .continue-btn {
+            background-color: #2196f3;
+            color: white;
+            padding: 14px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .continue-btn:hover {
+            background-color: #1976d2;
+        }
+
+        /* Error message */
+        .error {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="payment-box">
+    <h2>Payment</h2>
+
+    <!-- Predefined amount buttons -->
+    <div class="methods">
+        <button class="method-btn" onclick="selectAmount(5)">€5</button>
+        <button class="method-btn" onclick="selectAmount(10)">€10</button>
+        <button class="method-btn" onclick="selectAmount(20)">€20</button>
+        <button class="method-btn" onclick="selectAmount(50)">€50</button>
+    </div>
+
+    <!-- Custom amount input -->
+    <div class="custom-amount">
+        <input type="number" id="customAmount" placeholder="Or enter custom amount" oninput="updateDonation()">
+    </div>
+
+    <!-- Display selected amount -->
+    <div class="message" id="donationMessage">You will donate €0.00</div>
+
+    <!-- Error message if no amount is selected -->
+    <div class="error" id="errorMsg">⚠ Please select or enter an amount to continue.</div>
+
+    <!-- Continue button -->
+    <button class="continue-btn" onclick="continuePayment()">Continue</button></a>
+</div>
+
+<!-- JavaScript for handling logic -->
+<script>
+    function selectAmount(amount) {
+        document.getElementById('customAmount').value = amount;
+        updateDonation();
+    }
+
+    function updateDonation() {
+        const amount = document.getElementById('customAmount').value;
+        const message = document.getElementById('donationMessage');
+        const error = document.getElementById('errorMsg');
+        error.style.display = 'none';
+
+        if (amount && amount > 0) {
+            message.textContent = `You will donate €${parseFloat(amount).toFixed(2)}`;
+        } else {
+            message.textContent = `You will donate €0.00`;
+        }
+    }
+
+    function continuePayment() {
+        const amount = document.getElementById('customAmount').value;
+        const error = document.getElementById('errorMsg');
+
+        if (amount && amount > 0) {
+            alert(`Thank you for your donation of €${parseFloat(amount).toFixed(2)}!`);
+            // Proceed to next page
+            window.location.href = "cardsdetail.html";
+        } else {
+            error.style.display = 'block';
+        }
+    }
+</script>
+
+</body>
+</html>

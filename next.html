@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Information</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa, #ffffff);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .info-box {
+            background: #f1f8e9;
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            width: 480px;
+        }
+        .info-box h2 {
+            text-align: center;
+            color: #2e7d32;
+            margin-bottom: 20px;
+        }
+        .info-box input, .info-box textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .info-box button {
+            width: 100%;
+            background-color: #43a047;
+            color: white;
+            padding: 14px;
+            border: none;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        .info-box button:hover {
+            background-color: #2e7d32;
+        }
+        .success-message {
+            text-align: center;
+            margin-top: 15px;
+            color: #388e3c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="info-box">
+    <h2>Your Information</h2>
+    <input type="text" id="firstName" placeholder="First Name">
+    <input type="text" id="lastName" placeholder="Last Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="tel" id="phone" placeholder="Phone Number">
+    <textarea id="about" rows="4" placeholder="Tell us about yourself..."></textarea>
+    <a href="page2.html">
+    <button onclick="submitInfo()">Submit</button>
+    <div id="message" class="success-message"></div>
+    </a>
+</div>
+
+<script>
+    function submitInfo() {
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const about = document.getElementById('about').value.trim();
+        const messageBox = document.getElementById('message');
+
+        if (firstName && lastName && email && phone && about) {
+            messageBox.innerText = "Information submitted successfully!";
+        } else {
+            messageBox.innerText = "Please fill in all the fields.";
+        }
+    }
+</script>
+
+</body>
+</html>
+
+</body>
+</html>

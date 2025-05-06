@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UPI Payment</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      width: 350px;
+      background: white;
+      padding: 30px;
+      margin: 100px auto;
+      text-align: center;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"] {
+      width: 90%;
+      padding: 10px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    button {
+      padding: 10px 25px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .back {
+      margin-top: 15px;
+      display: block;
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <h2>UPI Payment</h2>
+    <p>Enter your UPI ID to proceed</p>
+    <input type="text" id="upiId" placeholder="example@upi">
+    <br>
+    <a href="amount.html">
+    <button onclick="confirmPayment()">Pay Now</button></a>
+    <p id="status" style="color: green; margin-top: 15px;"></p>
+    <a class="back" href="page2.html">← Back to Payment Options</a>
+  </div>
+
+  <script>
+    function confirmPayment() {
+      var upiId = document.getElementById("upiId").value;
+      if (upiId === "") {
+        alert("Please enter your UPI ID");
+      } else {
+        document.getElementById("status").innerText = "Payment request sent to " + upiId;
+      }
+    }
+  </script>
+
+</body>
+</html>
