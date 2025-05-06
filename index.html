@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>E-Learning for Kids - Donate</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="C:\Users\ANIKET\Desktop\Ṇ\e larning.webp">
+    <style>
+        /* Popup Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 999; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.5); 
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto; 
+            padding: 20px;
+            border: 1px solid red;
+            width: 300px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        .close {
+            color: black;
+            float: right;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: black;
+        }
+        .modal-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .modal-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://images.vexels.com/media/users/3/216748/raw/a3ea4c90a81a5713113fd42e20bb312f-e-learning-logo-design.jpg"
+         alt="e-Learning for Kids Logo" class="logo">
+    </header>
+
+    <section class="hero">
+        <h1><b>Our ambition: 100 million children reached in 2030!</b></h1>
+        
+        <button id="donateBtn" class="donate-button">DONATE (CREDIT CARD)</button></a>
+    </section>
+
+    <br>
+
+    <section class="color blocks">
+      <img src="https://blog.allviaedu.com/wp-content/uploads/2023/09/02_Guide-To-Teaching-Large-Classes-Of-Children_AllviA_230926.jpg" 
+      alt="student logo" width="800" height="400">
+    </section>
+
+    <section class="impact">
+        <h2>Your donation makes a difference!</h2>
+        <p>We believe that education is a true enabler of life. With e-learning for kids we provide basic primary education - free of charge - for those who have no access to it. Please support us in our goal to bring good quality, free & fun learning to all children aged 5 to 12 worldwide!</p>
+        <div class="e larning">
+            <img src="e larning.png" width="1000" height="300">
+    </section>
+
+    <!-- Popup Modal HTML --> <div ><a href="next.html">
+    <div id="donateModal" class="modal">
+        
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            
+            <h2>Thank you for supporting us!</h2>
+            <p>Click below to continue to payment.</p>
+            <button id="continueBtn" class="modal-button">Continue</button>
+            </a> </div>
+        </div>
+    </div>
+
+    <script>
+        // Popup Modal JavaScript
+        var modal = document.getElementById("donateModal");
+        var btn = document.getElementById("donateBtn");
+        var span = document.getElementsByClassName("close")[0];
+        var continueBtn = document.getElementById("continueBtn");
+
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        continueBtn.onclick = function() {
+            window.location.href = "next.html"; // Redirect to next page
+        }
+    </script>
+<script src="script.js"></script>
+</body>
+</html>
